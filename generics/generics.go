@@ -22,7 +22,7 @@ type element[T any] struct {
 func (lst *List[T]) Push(v T) {
 	if lst.tail == nil {
 		lst.head = &element[T]{val: v}
-		lst.tail = lst.tail.next
+		lst.tail = lst.head
 	} else {
 		lst.tail.next = &element[T]{val: v}
 		lst.tail = lst.tail.next
