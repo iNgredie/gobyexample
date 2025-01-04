@@ -17,10 +17,9 @@ func countWithChannel(
 }
 
 func main() {
-	c := make(chan string)
-	go countWithChannel("dog", c)
+	c := make(chan string, 1)
+	c <- "hello world!"
+	msg := <-c
 
-	for msg := range c {
-		fmt.Println(msg)
-	}
+	fmt.Println(msg)
 }
